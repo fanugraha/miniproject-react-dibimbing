@@ -1,0 +1,54 @@
+.WrapperCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.Card {
+  background: rgba(88, 130, 193, 0.28);
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+  height: 450px;
+  gap: 20px;
+  padding: 50px;
+}
+
+.Card img {
+  margin-bottom: 10px;
+  border-radius: 30px;
+  aspect-ratio: 3/3;
+  object-fit: cover;
+  width: 60%;
+  display: flex;
+}
+
+.Title-Card {
+  font: 600 20px "Gilroy", sans-serif;
+  color: white;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.Image {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Deskripsi-Card {
+  font: 300 16px "Gilroy", sans-serif;
+  color: white;
+  text-align: left;
+}
+
+.WrapperContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

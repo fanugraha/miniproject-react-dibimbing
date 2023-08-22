@@ -1,28 +1,16 @@
 .LoginCard {
   position: relative;
   width: 500px;
-  height: 400px;
-  gap: 30px;
+  height: 600px;
+  gap: 20px;
   padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: rgba(88, 130, 193, 0.28);
   border-radius: 30px;
   backdrop-filter: blur(12px);
-}
-
-.LoginCard::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  border: 3px solid rgba(88, 130, 193, 0.5);
-  border-radius: 30px;
-  pointer-events: none;
-  z-index: -1;
 }
 
 .Title {
@@ -49,4 +37,40 @@ body {
 .input {
   background: #ffffff;
   border-radius: 16px;
+  width: 500px !important;
+}
+
+.Title-Login {
+  color: #ffffff;
+  text-align: left;
+  font: 400 16px "Gilroy", sans-serif;
+}
+
+.wrapper-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Text-Form {
+  color: #ffffff;
+  text-align: left;
+  font: 300 14px "Gilroy", sans-serif;
+}
+
+.SocialMedia {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.Wrapper-Sosmed {
+  width: 90px;
+  height: 40px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

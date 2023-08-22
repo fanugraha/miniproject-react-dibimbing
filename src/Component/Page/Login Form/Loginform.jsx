@@ -11,18 +11,20 @@ const LoginForm = () => {
 
   const toggleVisibility = () => setIsVisible(!isVisible);
   return (
-    <div className="container">
-      <div className="LoginCard">
-        <h1 className="Title">Login</h1>
+    <div className="LoginCard">
+      <h1 className="Title">Login</h1>
+      <div className="wrapper-input">
+        <h1 className="Title-Login">Email</h1>
         <Input
           type="email"
-          label="Email"
           variant="bordered"
           placeholder="Enter Your Email"
           className="max-w-xs input"
         />
+      </div>
+      <div className="wrapper-input">
+        <h1 className="Title-Login">Password</h1>
         <Input
-          label="Password"
           variant="bordered"
           placeholder="Enter your password"
           endContent={
@@ -41,10 +43,25 @@ const LoginForm = () => {
           type={isVisible ? "text" : "password"}
           className="max-w-xs input"
         />
-        <Button color="primary" className="btn-login">
-          Login
-        </Button>
       </div>
+      <Button color="primary" className="btn-login">
+        Login
+      </Button>
+      <h1 className="Text-Form">or continue with</h1>
+      <div className="SocialMedia">
+        <button className="Wrapper-Sosmed">
+          <img src="src\assets\Icon & Logo\google.png" alt="" />
+        </button>
+        <button className="Wrapper-Sosmed">
+          <img src="src\assets\Icon & Logo\github.png" alt="" />
+        </button>
+        <button className="Wrapper-Sosmed">
+          <img src="src\assets\Icon & Logo\facebook.png" alt="" />
+        </button>
+      </div>
+      <h1 className="Text-Form">
+        Don’t have an account yet? <span>Register for free</span>
+      </h1>
     </div>
   );
 };
