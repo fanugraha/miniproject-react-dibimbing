@@ -1,4 +1,4 @@
-.LoginCard {
+.RegisterCard {
   position: relative;
   width: 500px;
   height: 600px;
@@ -16,7 +16,7 @@
 .Title {
   color: #ffffff;
   text-align: left;
-  font: 700 30px "Gilroy", sans-serif;
+  font: 700 30px "Poppins", sans-serif;
 }
 
 body {
@@ -43,7 +43,7 @@ body {
 .Title-Login {
   color: #ffffff;
   text-align: left;
-  font: 400 16px "Gilroy", sans-serif;
+  font: 500 18px "Poppins", sans-serif;
 }
 
 .wrapper-input {
@@ -55,7 +55,13 @@ body {
 .Text-Form {
   color: #ffffff;
   text-align: left;
-  font: 300 14px "Gilroy", sans-serif;
+  font: 300 14px "Poppins", sans-serif;
+}
+
+.Text-Form span a {
+  color: #ffffff;
+  text-align: left;
+  font: 600 14px "Poppins", sans-serif;
 }
 
 .SocialMedia {

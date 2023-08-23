@@ -1,12 +1,11 @@
 import * as React from "react";
 import { NextUIProvider } from "@nextui-org/react";
-import LoginForm from "./Component/Page/Login Form/Loginform";
-import UserList from "./Component/Page/User List Page/UserList";
+import AuthForm from "./Component/Page/Auth Form Page/AuthForm";
 
 function App() {
   return (
     <NextUIProvider>
-      <UserList />
+      <AuthForm />
     </NextUIProvider>
   );
 }

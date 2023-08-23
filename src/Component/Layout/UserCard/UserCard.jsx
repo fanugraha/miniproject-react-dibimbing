@@ -6,8 +6,8 @@ const UserCard = () => {
   // State untuk menyimpan data pengguna
   const [users, setUsers] = useState([]);
 
-  // Get Data API
-  const getData = () => {
+  // Get Data Users
+  const getDataUsers = () => {
     axios
       .get("https://reqres.in/api/users?page=2")
       .then((res) => {
@@ -21,13 +21,12 @@ const UserCard = () => {
 
   // Mounting
   useEffect(() => {
-    getData();
+    getDataUsers();
   }, []);
 
   return (
-    <div className="WrapperCard">
-      {users.map((item, index) => (
-        <button key={index} className="Card">
+      {users.map((item) => (
+        <button key={item?.id} className="Card">
           <div className="Image">
             <img src={item?.avatar} alt={`Avatar ${item?.first_name}`} />
           </div>
@@ -45,7 +44,6 @@ const UserCard = () => {
           </div>
         </button>
       ))}
-    </div>
   );
 };
 

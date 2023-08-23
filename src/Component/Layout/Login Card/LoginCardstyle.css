@@ -1,0 +1,82 @@
+.LoginCard {
+  position: relative;
+  width: 500px;
+  height: 600px;
+  gap: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(88, 130, 193, 0.28);
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+}
+
+.Title {
+  color: #ffffff;
+  text-align: left;
+  font: 700 30px "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("src/assets/Image/Bakground-login.png");
+  background-size: cover;
+}
+
+.btn-login {
+  width: 321px;
+  background: #003465 !important;
+}
+
+.input {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 500px !important;
+}
+
+.Title-Login {
+  color: #ffffff;
+  text-align: left;
+  font: 500 18px "Poppins", sans-serif;
+}
+
+.wrapper-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Text-Form {
+  color: #ffffff;
+  text-align: left;
+  font: 300 14px "Poppins", sans-serif;
+}
+
+.Text-Form span a {
+  color: #ffffff;
+  text-align: left;
+  font: 600 14px "Poppins", sans-serif;
+}
+
+.SocialMedia {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.Wrapper-Sosmed {
+  width: 90px;
+  height: 40px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
