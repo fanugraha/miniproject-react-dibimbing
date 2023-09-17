@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "@nextui-org/react";
 import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
@@ -34,10 +34,14 @@ const LoginCard = (props) => {
   const handleSubmit = (e) => {
     onOpen();
     dispatch(loginUser({ email: emailLogin, password: passwordLogin }));
-    if (!status) return;
-    navigate("/");
     e.preventDefault(e);
   };
+
+  useEffect(() => {
+    if (status === "success") {
+      navigate("/");
+    }
+  }, [status]);
 
   return (
     <div className="LoginCard">
