@@ -3,25 +3,20 @@ import LoginCard from "../../Layout/Login Card/LoginCard";
 import RegisterCard from "../../Layout/Register Card/RegisterCard";
 
 const AuthForm = () => {
-  //state
-  const [AuthType, setAuthType] = useState("Login");
+  //Set state defaut login
+  const [authType, setauthType] = useState(true);
 
   const handleSetLogin = () => {
-    setAuthType("Login");
+    setauthType(true);
   };
-
   const handleSetRegister = () => {
-    setAuthType("Register");
+    setauthType(false);
   };
 
   return (
     <div>
-      {AuthType === "Login" && (
-        <LoginCard handleSetRegister={handleSetRegister} />
-      )}
-      {AuthType === "Register" && (
-        <RegisterCard handleSetLogin={handleSetLogin} />
-      )}
+      {authType === true && <LoginCard handleSetRegister={handleSetRegister} />}
+      {authType === false && <RegisterCard handleSetLogin={handleSetLogin} />}
     </div>
   );
 };

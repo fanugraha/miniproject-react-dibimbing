@@ -13,11 +13,26 @@ import {
   Button,
   useDisclosure,
 } from "@nextui-org/react";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../../redux/slice/RegisterSlice";
+import { useNavigate } from "react-router";
 
-const RegisterCard = ({ handleSetLogin }) => {
+const RegisterCard = (props) => {
   // Set State Register
   const [emailRegister, setEmailRegister] = useState("");
   const [passwordRegister, setPasswordRegister] = useState("");
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.register.status);
+  const error = useSelector((state) => state.register.error);
+  const token = useSelector((state) => state.register.token);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(e);
+    onOpen();
+    dispatch(
+      registerUser({ email: emailRegister, password: passwordRegister })
+    );
+  };
 
   // Modal
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -26,32 +41,39 @@ const RegisterCard = ({ handleSetLogin }) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  // Post Login API
-  const postApiRegister = () => {
-    axios
-      .post("https://reqres.in/api/register", {
-        email: emailRegister,
-        password: passwordRegister,
-      })
-      .then((res) => {
-        console.log("Berhasil", res);
-      })
-      .catch((err) => {
-        console.log(err?.response.data.error);
-        onOpen();
-      });
-  };
-
   return (
     <div className="RegisterCard">
+      {status === "failed" && (
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">
+                  Warning
+                </ModalHeader>
+                <ModalBody>
+                  <p>Missing email login or username!</p>
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+            {status === "success" && useNavigate("/")}
+          </ModalContent>
+        </Modal>
+      )}
       <h1 className="Title">Register</h1>
       <div className="wrapper-input">
         <h1 className="Title-Login">Email</h1>
         <Input
-          type="emailRegister"
+          type="email"
           variant="bordered"
           placeholder="Enter your email"
           className="max-w-xs input"
+          value={emailRegister}
           // Ngambil inputan user dan di save di useState
           onChange={(event) => {
             setEmailRegister(event.target.value);
@@ -61,7 +83,7 @@ const RegisterCard = ({ handleSetLogin }) => {
       <div className="wrapper-input">
         <h1 className="Title-Login">Password</h1>
         <Input
-          // Ngambil inputan user dan di save di useState
+          value={passwordRegister}
           onChange={(event) => {
             setPasswordRegister(event.target.value);
           }}
@@ -88,7 +110,7 @@ const RegisterCard = ({ handleSetLogin }) => {
         color="primary"
         className="btn-login"
         // Action
-        onClick={postApiRegister}
+        onClick={handleSubmit}
       >
         Register
       </Button>
@@ -107,29 +129,11 @@ const RegisterCard = ({ handleSetLogin }) => {
       <h1 className="Text-Form">
         Have an account yet?{" "}
         <span>
-          <a href="#" onClick={handleSetLogin}>
+          <a href="#" onClick={props.handleSetLogin}>
             Login
           </a>
         </span>
       </h1>
-      {/* Modal */}
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">Warning</ModalHeader>
-              <ModalBody>
-                <p>Missing email login or username!</p>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
     </div>
   );
 };
